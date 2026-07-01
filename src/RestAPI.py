@@ -1,7 +1,22 @@
-# basic api tutorial
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-# new tut
-# update test
-#quick add
+app = Flask(__name__)
 
-#single update
+#create database
+
+
+#create Routes
+#https:// xxxx
+
+@app.route('/')
+def home():
+    return "Hello, World!"
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True) 
+    
