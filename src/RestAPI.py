@@ -78,8 +78,6 @@ def update_destination(destination_id):
         return jsonify({'message': 'Destination not found'}), 404
     
 
-
-
 #DELETE
 @app.route('/destinations/<int:destination_id>', methods=['DELETE'])
 def delete_destination(destination_id):
