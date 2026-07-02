@@ -25,8 +25,6 @@ def to_dict(self):
 with app.app_context():
     db.create_all()
     
-    
-    
 #create Routes
 #https:// xxxx
 
