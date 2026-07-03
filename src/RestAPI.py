@@ -1,3 +1,6 @@
+# python -m venv api_env
+# source api_env/bin/activate
+
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy #orm
 
@@ -14,7 +17,7 @@ class Destination(db.Model):
     country = db.Column(db.String(100), nullable=False)
     rating = db.Column(db.Float, nullable=False)
 
-def to_dict(self):
+    def to_dict(self):
         return {
             'id': self.id,
             'destination': self.destination,
@@ -91,4 +94,5 @@ def delete_destination(destination_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
     
