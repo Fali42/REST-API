@@ -15,14 +15,17 @@ class Destination(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     destination = db.Column(db.String(100), nullable=False)
     country = db.Column(db.String(100), nullable=False)
-    rating = db.Column(db.Float, nullable=False)
+    date = db.Column(db.String(100), nullable=False)
+    duration = db.Column(db.Integer, nullable=False)
+    
 
     def to_dict(self):
         return {
             'id': self.id,
             'destination': self.destination,
             'country': self.country,
-            'rating': self.rating
+            'date': self.date,
+            'duration': self.duration
         }
         
 with app.app_context():
@@ -56,7 +59,8 @@ def add_destination():
     new_destination = Destination(
         destination=data['destination'],
         country=data['country'],
-        rating=data['rating']
+        date=data['date'],
+        duration=data['duration']
     )
     
     db.session.add(new_destination)
@@ -71,7 +75,8 @@ def update_destination(destination_id):
         data = request.get_json()
         destination.destination = data['destination']
         destination.country = data['country']
-        destination.rating = data['rating']
+        destination.date = data['date']
+        destination.duration = data['duration']
         
         db.session.commit()
         return jsonify(destination.to_dict())
